@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: Moba 2023
-  defaultCursor: {fileID: 2800000, guid: f28ab84f7902d3f47a9e6d260a2784ac, type: 3}
+  defaultCursor: {fileID: 2800000, guid: f18e80fb4469e98458bd3c944d3d7ee8, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
