@@ -4,7 +4,7 @@ using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Move : MonoBehaviour
+public class PlayerControl : MonoBehaviour
 {
     NavMeshAgent agent;
     Animator animcont;
