@@ -1,0 +1,5 @@
+* Follow cam
+	Oyuncuyu takip eden ve cameranin field of view ozelligiyle zoom yapmasini saglayan script
+
+* Genel nesne sinifi
+	Tum canli nesnelerde(kule, minyon..) kullanilacak tum degiskenleri(mana, hiz..) icinde barindiran nesne sinifi
