@@ -7,11 +7,13 @@ using UnityEngine.AI;
 public class Move : MonoBehaviour
 {
     NavMeshAgent agent;
-    Animator animcont;
+    Animator anim_Cont;
+
+    public string animState = "idle";
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        animcont = transform.GetChild(0).GetComponent<Animator>();
+        anim_Cont = transform.GetChild(0).GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,14 +26,22 @@ public class Move : MonoBehaviour
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
                 agent.destination = hit.point;
-                animcont.SetBool("moving", true);
+                anim_Cont.SetBool("moving", true);
             }
         }
 
         // Check the distance between destination and agent 
         if (Vector3.Distance(agent.destination, agent.transform.position) < 0.5f)
         {
-            animcont.SetBool("moving", false);
+            anim_Cont.SetBool("moving", false);
+        }
+    }
+
+    void AnimHandler()
+    {
+        if (animState == "idle")
+        {
+            anim_Cont.SetBool("moving", false);
         }
     }
 }
