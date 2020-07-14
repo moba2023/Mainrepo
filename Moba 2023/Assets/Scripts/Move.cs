@@ -43,5 +43,13 @@ public class Move : MonoBehaviour
         {
             anim_Cont.SetBool("moving", false);
         }
+        else if (animState == "move")
+        {
+            anim_Cont.SetBool("moving", false);
+        }
+        else
+        {
+            anim_Cont.SetBool("attack", false);
+        }
     }
 }
