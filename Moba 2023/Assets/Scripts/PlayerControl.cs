@@ -27,9 +27,12 @@ public class PlayerControl : MonoBehaviour
                 animcont.SetBool("moving", true);
             }
         }
-
-        // Check the distance between destination and agent 
-        if (Vector3.Distance(agent.destination, agent.transform.position) < 0.5f)
+        if (Input.GetKeyDown(KeyCode.S)){
+            agent.ResetPath();
+        }
+        
+            // Check the distance between destination and agent 
+            if (Vector3.Distance(agent.destination, agent.transform.position) < 0.5f)
         {
             animcont.SetBool("moving", false);
         }
