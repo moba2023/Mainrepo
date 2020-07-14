@@ -541,6 +541,12 @@ PrefabInstance:
       propertyPath: range
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7728534699573027840, guid: 078c11cdb052eeb42b88f066ac38766f,
+        type: 3}
+      propertyPath: trace
+      value: 
+      objectReference: {fileID: 7170642219098204229, guid: bf38dd20aa901b64aa51dc4f9f79b117,
+        type: 3}
     - target: {fileID: 7728534699573027843, guid: 078c11cdb052eeb42b88f066ac38766f,
         type: 3}
       propertyPath: m_Name

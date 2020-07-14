@@ -1,4 +1,2 @@
-*imleç yapýlacak
-
 * Genel nesne sinifi
 	Tum canli nesnelerde(kule, minyon..) kullanilacak tum degiskenleri(mana, hiz..) icinde barindiran nesne sinifi
