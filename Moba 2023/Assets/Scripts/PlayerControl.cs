@@ -7,11 +7,15 @@ using UnityEngine.AI;
 public class PlayerControl : MonoBehaviour
 {
     NavMeshAgent agent;
-    Animator animcont;
+    Animator anim_Cont;
+    string state = "";//idle, move, chasing, attack, follow
+    public float range;
+    public Transform enemy;
+    public GameObject trace;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        animcont = transform.GetChild(0).GetComponent<Animator>();
+        anim_Cont = transform.GetChild(0).GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -23,15 +27,82 @@ public class PlayerControl : MonoBehaviour
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
-                agent.destination = hit.point;
-                animcont.SetBool("moving", true);
+                if (hit.transform.tag == "Enemy")
+                {
+                    enemy = hit.transform;
+                    state = "chasing";
+                }
+                else
+                {
+                    Move(hit);
+                }
             }
         }
 
-        // Check the distance between destination and agent 
-        if (Vector3.Distance(agent.destination, agent.transform.position) < 0.5f)
+        
+        if (state == "move")
         {
-            animcont.SetBool("moving", false);
+            if (Vector3.Distance(agent.destination, agent.transform.position) < 0.5f)
+            {
+                state = "idle";
+                AnimHandler("idle");
+            }
+        }
+        
+        else if (state == "chasing")
+        {
+            Chase();
+        }
+        
+    }
+
+
+    void Move(RaycastHit hit)
+    {
+        state = "move";
+        agent.destination = hit.point;
+        AnimHandler("move");
+        Instantiate(trace, new Vector3(hit.point.x, 0.1f, hit.point.z), Quaternion.Euler(-90, 0, 0));
+    }
+
+
+    void Chase()
+    {
+
+        if (Vector3.Distance(enemy.position, agent.transform.position) < range)
+        {
+            agent.ResetPath();
+            AnimHandler("attack");     
+        }
+        else
+        {
+            agent.destination = enemy.position;
+            AnimHandler("move");
+        }
+    }
+
+    void AnimHandler(string animState)
+    {
+        if (!anim_Cont.GetBool(animState))
+        {
+            if (animState == "idle")
+            {
+                anim_Cont.SetBool("idle", true);
+                anim_Cont.SetBool("move", false);
+                anim_Cont.SetBool("attack", false);
+            }
+            else if (animState == "move")
+            {
+                anim_Cont.SetBool("idle", false);
+                anim_Cont.SetBool("move", true);
+                anim_Cont.SetBool("attack", false);
+            }
+            else
+            {
+                anim_Cont.SetBool("idle", false);
+                anim_Cont.SetBool("move", false);
+                anim_Cont.SetBool("attack", true);
+            }
         }
     }
 }

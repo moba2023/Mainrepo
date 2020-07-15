@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: f90180190386b5f4abe02451a6b931c0
+guid: 995b8c99b2c62e140b200be237c4b8b6
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: idle
+    second: kick
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: idle
+      name: kick
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 275
+      lastFrame: 48
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
