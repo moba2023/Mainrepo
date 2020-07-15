@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 89052480}
   - component: {fileID: 89052484}
   - component: {fileID: 89052485}
+  - component: {fileID: 89052486}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Enemy
@@ -252,12 +253,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 504941691}
+--- !u!114 &89052486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89052479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddfba1f9db2093e42894b2b6b2a15e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
 --- !u!1 &504941691 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7728534699573027843, guid: 078c11cdb052eeb42b88f066ac38766f,
     type: 3}
   m_PrefabInstance: {fileID: 7728534700208006886}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &504941692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504941691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddfba1f9db2093e42894b2b6b2a15e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
