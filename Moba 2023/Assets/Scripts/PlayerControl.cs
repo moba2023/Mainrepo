@@ -62,10 +62,10 @@ public class PlayerControl : MonoBehaviour
         if (Vector3.Distance(agent.transform.position, hit.point) > 2.8)
         {
             state = "move";
-        agent.destination = hit.point;
-        AnimHandler("move");
-        Instantiate(trace, new Vector3(hit.point.x, 0.1f, hit.point.z), Quaternion.Euler(-90, 0, 0));
-              
+            agent.destination = hit.point;
+            AnimHandler("move");
+            Instantiate(trace, new Vector3(hit.point.x, 0.1f, hit.point.z), Quaternion.Euler(-90, 0, 0));
+          
         }
     }
 
