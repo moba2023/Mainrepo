@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 89052481}
   - component: {fileID: 89052480}
   - component: {fileID: 89052484}
+  - component: {fileID: 89052485}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Enemy
@@ -149,7 +150,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89052479}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -226,10 +227,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_Speed: 5
+  m_Acceleration: 1000
+  avoidancePriority: 40
+  m_AngularSpeed: 1000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -238,6 +239,25 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &89052485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89052479}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a73f1af0d2909bf49b85ced9bda72ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 504941691}
+--- !u!1 &504941691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7728534699573027843, guid: 078c11cdb052eeb42b88f066ac38766f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7728534700208006886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +567,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7170642219098204229, guid: bf38dd20aa901b64aa51dc4f9f79b117,
         type: 3}
+    - target: {fileID: 7728534699573027841, guid: 078c11cdb052eeb42b88f066ac38766f,
+        type: 3}
+      propertyPath: avoidancePriority
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7728534699573027843, guid: 078c11cdb052eeb42b88f066ac38766f,
         type: 3}
       propertyPath: m_Name

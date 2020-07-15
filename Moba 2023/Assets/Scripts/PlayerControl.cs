@@ -8,11 +8,10 @@ public class PlayerControl : MonoBehaviour
 {
     NavMeshAgent agent;
     Animator anim_Cont;
-    string state = "";//idle, move, chasing
+    string state = "";//idle, move, chasing, attack, follow
     public float range;
     public Transform enemy;
     public GameObject trace;
-
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -30,19 +29,17 @@ public class PlayerControl : MonoBehaviour
             {
                 if (hit.transform.tag == "Enemy")
                 {
-                    state = "chasing";//DUSMANI KOVALIYOR YADA SALDIRIRYOR
                     enemy = hit.transform;
+                    state = "chasing";
                 }
                 else
                 {
-                    state = "move";
-                    agent.destination = hit.point;
-                    AnimHandler("move");
-                    Instantiate(trace, new Vector3(hit.point.x, 0.1f, hit.point.z), Quaternion.Euler(-90, 0, 0));
+                    Move(hit);
                 }
             }
         }
 
+        
         if (state == "move")
         {
             if (Vector3.Distance(agent.destination, agent.transform.position) < 0.5f)
@@ -51,56 +48,61 @@ public class PlayerControl : MonoBehaviour
                 AnimHandler("idle");
             }
         }
+        
         else if (state == "chasing")
         {
-            if (Vector3.Distance(enemy.position, agent.transform.position) < range)
-            {
-                agent.ResetPath();
-                AnimHandler("attack");
-            }
-            else
-            {
-                agent.destination = enemy.position;
-                AnimHandler("move");
-            }
+            Chase();
         }
+        
+    }
 
 
-        /*
-        if (Input.GetKeyDown("1"))
+    void Move(RaycastHit hit)
+    {
+        state = "move";
+        agent.destination = hit.point;
+        AnimHandler("move");
+        Instantiate(trace, new Vector3(hit.point.x, 0.1f, hit.point.z), Quaternion.Euler(-90, 0, 0));
+    }
+
+
+    void Chase()
+    {
+
+        if (Vector3.Distance(enemy.position, agent.transform.position) < range)
         {
-            AnimHandler("idle");
+            agent.ResetPath();
+            AnimHandler("attack");     
         }
-        else if (Input.GetKeyDown("2"))
+        else
         {
+            agent.destination = enemy.position;
             AnimHandler("move");
         }
-        else if (Input.GetKeyDown("3"))
-        {
-            AnimHandler("attack");
-        }*/
     }
 
     void AnimHandler(string animState)
     {
-        if (animState == "idle")
+        if (!anim_Cont.GetBool(animState))
         {
-            anim_Cont.SetBool("idle", true);
-            anim_Cont.SetBool("move", false);
-            anim_Cont.SetBool("attack", false);
-        }
-        else if (animState == "move")
-        {
-            anim_Cont.SetBool("idle", false);
-            anim_Cont.SetBool("move", true);
-            anim_Cont.SetBool("attack", false);
-        }
-        else
-        {
-            anim_Cont.SetBool("idle", false);
-            anim_Cont.SetBool("move", false);
-            anim_Cont.SetBool("attack", true);
+            if (animState == "idle")
+            {
+                anim_Cont.SetBool("idle", true);
+                anim_Cont.SetBool("move", false);
+                anim_Cont.SetBool("attack", false);
+            }
+            else if (animState == "move")
+            {
+                anim_Cont.SetBool("idle", false);
+                anim_Cont.SetBool("move", true);
+                anim_Cont.SetBool("attack", false);
+            }
+            else
+            {
+                anim_Cont.SetBool("idle", false);
+                anim_Cont.SetBool("move", false);
+                anim_Cont.SetBool("attack", true);
+            }
         }
     }
-
 }
