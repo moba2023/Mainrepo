@@ -7,6 +7,11 @@ public class Statsinfo : MonoBehaviour
 
     [Header("Vigor")]
 
-    public int health;
-    private int attackPower;
+
+    public int maxHealth;
+    public int curHealth;
+
+
+
+
 }
