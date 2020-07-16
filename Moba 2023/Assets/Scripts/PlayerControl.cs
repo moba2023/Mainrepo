@@ -12,6 +12,7 @@ public class PlayerControl : MonoBehaviour
     public float range;
     public Transform enemy;
     public GameObject trace;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -53,7 +54,6 @@ public class PlayerControl : MonoBehaviour
         {
             Chase();
         }
-        
     }
 
 

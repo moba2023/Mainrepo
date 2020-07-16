@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 89052480}
   - component: {fileID: 89052484}
   - component: {fileID: 89052485}
-  - component: {fileID: 89052486}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Enemy
@@ -253,20 +252,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 504941691}
---- !u!114 &89052486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 89052479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddfba1f9db2093e42894b2b6b2a15e5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
-  curHealth: 0
 --- !u!1 &370079215
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,8 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddfba1f9db2093e42894b2b6b2a15e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  curHealth: 0
+  maxHealth: 1000
+  curHealth: 600
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,10 +747,20 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5511314550575029149, guid: bf57a8b41645150449257e7ebc73090e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5511314550575029151, guid: bf57a8b41645150449257e7ebc73090e,
         type: 3}
       propertyPath: m_Name
       value: Health Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5511314551123179997, guid: bf57a8b41645150449257e7ebc73090e,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5511314551594397758, guid: bf57a8b41645150449257e7ebc73090e,
         type: 3}
@@ -803,6 +798,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2080844655}
+  - component: {fileID: 2080844656}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -826,6 +822,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2080844656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080844654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddfba1f9db2093e42894b2b6b2a15e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  curHealth: 50
 --- !u!1001 &5511314549788208574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -943,6 +953,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5511314551123179997, guid: bf57a8b41645150449257e7ebc73090e,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5511314551594397889, guid: bf57a8b41645150449257e7ebc73090e,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -977,6 +992,16 @@ PrefabInstance:
         type: 3}
       propertyPath: avoidancePriority
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728534699573027841, guid: 078c11cdb052eeb42b88f066ac38766f,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728534699573027841, guid: 078c11cdb052eeb42b88f066ac38766f,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 7728534699573027843, guid: 078c11cdb052eeb42b88f066ac38766f,
         type: 3}
