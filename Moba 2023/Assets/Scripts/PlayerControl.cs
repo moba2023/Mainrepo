@@ -59,10 +59,14 @@ public class PlayerControl : MonoBehaviour
 
     void Move(RaycastHit hit)
     {
-        state = "move";
-        agent.destination = hit.point;
-        AnimHandler("move");
-        Instantiate(trace, new Vector3(hit.point.x, 0.1f, hit.point.z), Quaternion.Euler(-90, 0, 0));
+        if (Vector3.Distance(agent.transform.position, hit.point) > 2.8)
+        {
+            state = "move";
+            agent.destination = hit.point;
+            AnimHandler("move");
+            Instantiate(trace, new Vector3(hit.point.x, 0.1f, hit.point.z), Quaternion.Euler(-90, 0, 0));
+          
+        }
     }
 
 

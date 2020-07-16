@@ -7,7 +7,7 @@ public class Traceanim : MonoBehaviour
 
     private void Start()
     {
-        Invoke("Destroy", 0.75f);
+        Invoke("Destroy", 0.50f);
     }
 
     void Update()
