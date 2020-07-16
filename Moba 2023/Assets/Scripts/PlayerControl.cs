@@ -12,6 +12,7 @@ public class PlayerControl : MonoBehaviour
     public float range;
     public Transform enemy;
     public GameObject trace;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -53,7 +54,6 @@ public class PlayerControl : MonoBehaviour
         {
             Chase();
         }
-        
     }
 
 
@@ -76,6 +76,7 @@ public class PlayerControl : MonoBehaviour
         if (Vector3.Distance(enemy.position, agent.transform.position) < range)
         {
             agent.ResetPath();
+            transform.LookAt(new Vector3(enemy.position.x, transform.position.y, enemy.position.z));
             AnimHandler("attack");     
         }
         else

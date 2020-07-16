@@ -11,7 +11,9 @@ public class Statsinfo : MonoBehaviour
     public int maxHealth;
     public int curHealth;
 
-    
+
+    public Transform target;
+
 
 
 }
