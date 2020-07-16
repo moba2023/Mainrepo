@@ -72,6 +72,7 @@ public class PlayerControl : MonoBehaviour
         if (Vector3.Distance(enemy.position, agent.transform.position) < range)
         {
             agent.ResetPath();
+            transform.LookAt(new Vector3(enemy.position.x, transform.position.y, enemy.position.z));
             AnimHandler("attack");     
         }
         else

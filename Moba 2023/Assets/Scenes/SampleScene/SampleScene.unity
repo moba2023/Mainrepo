@@ -338,6 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1000
   curHealth: 600
+  target: {fileID: 2080844655}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +630,24 @@ MonoBehaviour:
   pl: {fileID: 836484794}
   offset: 40
   smooth: 2.5
+--- !u!1 &1015692754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6943199105583463883, guid: 078c11cdb052eeb42b88f066ac38766f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7728534700208006886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1015692757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015692754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa78e31ea9cf1a41ac13262155cdce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1447648392 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5511314550575029148, guid: bf57a8b41645150449257e7ebc73090e,
@@ -834,8 +853,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddfba1f9db2093e42894b2b6b2a15e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  curHealth: 50
+  maxHealth: 200
+  curHealth: 160
+  target: {fileID: 0}
 --- !u!1001 &5511314549788208574
 PrefabInstance:
   m_ObjectHideFlags: 0
