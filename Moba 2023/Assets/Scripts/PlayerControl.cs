@@ -31,6 +31,7 @@ public class PlayerControl : MonoBehaviour
                 if (hit.transform.tag == "Enemy")
                 {
                     enemy = hit.transform;
+                    GetComponent<Statsinfo>().target = hit.transform;
                     state = "chasing";
                 }
                 else
