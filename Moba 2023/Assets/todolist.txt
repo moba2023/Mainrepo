@@ -1,2 +1,12 @@
-* Genel nesne sinifi
-	Tum canli nesnelerde(kule, minyon..) kullanilacak tum degiskenleri(mana, hiz..) icinde barindiran nesne sinifi
+Buralar karisacak sIkI tutun
+
+* Tum varliklarin saldiri rangeine targetin radiusu eklenecek
+	bloklanma ile ilgili optimizasyon
+
+* Minion spawn eden base scripti
+	Her x saniyede bir 1sn aralikla y adet minyon uretecek
+
+* Minion Prefabi
+	Elinde kilic olan bir karakter. Yurume, saldiri ve olum animasyonuyla birlikte
+	Elinde ok yada firlatacak bise olan karakter. Animasyonlariyla birlikte
+

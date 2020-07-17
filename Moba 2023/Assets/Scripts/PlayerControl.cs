@@ -13,6 +13,8 @@ public class PlayerControl : MonoBehaviour
     public Transform enemy;
     public GameObject trace;
 
+    public bool atkanimbegin;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -31,6 +33,7 @@ public class PlayerControl : MonoBehaviour
                 if (hit.transform.tag == "Enemy")
                 {
                     enemy = hit.transform;
+                    GetComponent<Statsinfo>().target = hit.transform;
                     state = "chasing";
                 }
                 else
@@ -64,6 +67,7 @@ public class PlayerControl : MonoBehaviour
             state = "move";
             agent.destination = hit.point;
             AnimHandler("move");
+            atkanimbegin = false;    
         }
         Instantiate(trace, new Vector3(hit.point.x, 0.1f, hit.point.z), Quaternion.Euler(-90, 0, 0));
     }
@@ -80,8 +84,11 @@ public class PlayerControl : MonoBehaviour
         }
         else
         {
-            agent.destination = enemy.position;
-            AnimHandler("move");
+            if (!atkanimbegin)
+            {
+                agent.destination = enemy.position;
+                AnimHandler("move");
+            }
         }
     }
 
