@@ -15,6 +15,7 @@ public class Janisarry : MonoBehaviour
 
 
     public string state;
+    public bool chaseBreak;
 
 
 
@@ -26,7 +27,6 @@ public class Janisarry : MonoBehaviour
         agent = transform.parent.GetComponent<NavMeshAgent>();
         agent.destination = GameObject.Find("Point " + transform.parent.tag.Split(' ')[1]).transform.position;
         state = "move";
-
     }
 
     private void Update()
@@ -78,15 +78,23 @@ public class Janisarry : MonoBehaviour
             agent.ResetPath();
             animator.SetBool("chase", true);
             transform.parent.LookAt(stats.target);
+            chaseBreak = true;
+
         }
         else if (Vector3.Distance(stats.target.position, transform.position) > stats.attackRange + 10)
         {
-            stats.target = null;
+            if (!chaseBreak)
+            {
+                stats.target = null;
+            }
         }
         else
         {
-            agent.destination = stats.target.position;
-            animator.SetBool("chase", false);
+            if (!chaseBreak)
+            {
+                agent.destination = stats.target.position;
+                animator.SetBool("chase", false);
+            }
         }
     }
 }

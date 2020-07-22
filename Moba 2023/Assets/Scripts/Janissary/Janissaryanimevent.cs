@@ -19,6 +19,7 @@ public class Janissaryanimevent : MonoBehaviour
     {
         ball = Instantiate(ballPrefab, hand.transform.position, Quaternion.identity);
         ball.transform.SetParent(hand);
+        ball.GetComponent<Handball>().attacker = transform;
     }
 
     public void MidAttack()
@@ -30,6 +31,6 @@ public class Janissaryanimevent : MonoBehaviour
 
     public void EndAttack()
     {
-
+        GetComponent<Janisarry>().chaseBreak = false;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
@@ -30,7 +31,7 @@ public class PlayerControl : MonoBehaviour
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, LayerMask.GetMask("Terrain")))
             {
-                if (hit.transform.tag == "Enemy")
+                if (GetComponent<Statsinfo>().GetEnemies().Contains(hit.transform.tag))
                 {
                     enemy = hit.transform;
                     GetComponent<Statsinfo>().target = hit.transform;

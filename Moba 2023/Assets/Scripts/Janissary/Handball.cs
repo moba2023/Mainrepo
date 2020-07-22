@@ -7,6 +7,7 @@ public class Handball : MonoBehaviour
 
     public bool charce;
     public Transform target;
+    public Transform attacker;
 
     private void Update()
     {
@@ -21,13 +22,20 @@ public class Handball : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.position.x, 5, target.position.z), Time.deltaTime * 50);
             }
         }
+        else
+        {   
+            if (!attacker.parent.GetComponent<Statsinfo>().target.parent.GetComponent<Statsinfo>().isAlive)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform == target)
         {
-            other.transform.parent.GetComponent<Statsinfo>().DamageTaken(75, transform);
+            other.transform.parent.GetComponent<Statsinfo>().DamageTaken(75, attacker);
             Destroy(gameObject);
         }
     }
