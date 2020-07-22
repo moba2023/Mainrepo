@@ -28,7 +28,7 @@ public class PlayerControl : MonoBehaviour
         {
             RaycastHit hit;
 
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, LayerMask.GetMask("Terrain")))
             {
                 if (hit.transform.tag == "Enemy")
                 {

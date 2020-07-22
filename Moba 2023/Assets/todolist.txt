@@ -10,3 +10,6 @@ Buralar karisacak sIkI tutun
 	Elinde kilic olan bir karakter. Yurume, saldiri ve olum animasyonuyla birlikte
 	Elinde ok yada firlatacak bise olan karakter. Animasyonlariyla birlikte
 
+* Hitboxlar animasyona gore optimize edilecek
+
+* chaseBreak Bugu
