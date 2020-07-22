@@ -65,8 +65,9 @@ public class Janisarry : MonoBehaviour
         state = "death";
         animator.SetTrigger("death");
         GetComponent<CapsuleCollider>().enabled = false;
-        transform.parent.GetComponent<NavMeshAgent>().enabled = false;
-        transform.parent.Find("Health Canvas").gameObject.active = false;
+        agent.speed = 0;
+        agent.radius = 0;
+        transform.parent.Find("Health Canvas").gameObject.SetActive(false);
         Destroy(transform.parent.gameObject, 4);
     }
 

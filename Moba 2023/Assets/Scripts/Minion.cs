@@ -86,7 +86,7 @@ public class Minion : MonoBehaviour
         transform.GetChild(0).gameObject.GetComponent<Animator>().SetTrigger("death");
         GetComponent<CapsuleCollider>().enabled = false;
         GetComponent<NavMeshAgent>().enabled = false;
-        transform.GetChild(1).gameObject.active = false;
+        transform.GetChild(1).gameObject.SetActive(false);
     }
 
 
