@@ -23,7 +23,7 @@ public class Kachanimevents : MonoBehaviour
 
     void MidAttack()
     {
-        transform.parent.gameObject.GetComponent<Statsinfo>().target.gameObject.GetComponent<Statsinfo>().curHealth -= 50;
+        transform.parent.gameObject.GetComponent<Statsinfo>().target.gameObject.GetComponent<Statsinfo>().curHealth -= 150;
     }
 
     void EndAttack()
