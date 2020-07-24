@@ -6,7 +6,3 @@
 
 * Minion Prefabi
 	Elinde kilic olan bir karakter. Yurume, saldiri ve olum animasyonuyla birlikte
-	
-
-
-* chaseBreak Bugu

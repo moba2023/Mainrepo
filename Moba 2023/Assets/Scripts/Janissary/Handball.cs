@@ -24,7 +24,7 @@ public class Handball : MonoBehaviour
         }
         else
         {   
-            if (!attacker.parent.GetComponent<Statsinfo>().target.parent.GetComponent<Statsinfo>().isAlive)
+            if (attacker.parent.GetComponent<Statsinfo>().target.parent != null && !attacker.parent.GetComponent<Statsinfo>().target.parent.GetComponent<Statsinfo>().isAlive)
             {
                 Destroy(gameObject);
             }
