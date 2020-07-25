@@ -22,9 +22,12 @@ public class Janissaryanimevent : MonoBehaviour
 
     public void BeginAttack()
     {
-        ball = Instantiate(ballPrefab, hand.transform.position, Quaternion.identity);
-        ball.transform.SetParent(hand);
-        ball.GetComponent<Handball>().attacker = transform;
+        if (stats.target != null)
+        {
+            ball = Instantiate(ballPrefab, hand.transform.position, Quaternion.identity);
+            ball.transform.SetParent(hand);
+            ball.GetComponent<Handball>().attacker = transform;
+        }
     }
 
     public void MidAttack()
