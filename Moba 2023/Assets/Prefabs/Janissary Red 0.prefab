@@ -1105,7 +1105,7 @@ GameObject:
   - component: {fileID: 5388622196349244217}
   - component: {fileID: 5046655601043142312}
   - component: {fileID: 5046655601043142313}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Creep
   m_TagString: Any Team
   m_Icon: {fileID: 0}
@@ -1173,6 +1173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef097a6fcd8527488c6235e14d88b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextPoint: {fileID: 0}
+  targetBase: {fileID: 0}
   state: 
   chaseBreak: 0
 --- !u!114 &5046655601043142313

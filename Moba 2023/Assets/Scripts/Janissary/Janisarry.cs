@@ -13,6 +13,8 @@ public class Janisarry : MonoBehaviour
     Statsinfo stats;
     NearEnemies nearEnemies;
 
+    public Transform nextPoint;
+    public Transform targetBase;
 
     public string state;
     public bool chaseBreak;
@@ -25,7 +27,7 @@ public class Janisarry : MonoBehaviour
         stats = transform.parent.GetComponent<Statsinfo>();
         nearEnemies = transform.parent.Find("Chasecircle").GetComponent<NearEnemies>();
         agent = transform.parent.GetComponent<NavMeshAgent>();
-        agent.destination = GameObject.Find("Point " + transform.parent.tag.Split(' ')[1]).transform.position;
+        agent.destination = nextPoint.position;
         state = "move";
     }
 
@@ -49,7 +51,7 @@ public class Janisarry : MonoBehaviour
                 {
                     state = "move";
                     animator.SetBool("chase", false);
-                    agent.destination = GameObject.Find("Point " + transform.parent.tag.Split(' ')[1]).transform.position;
+                    agent.destination = nextPoint.position;
                 }
                 else
                 {
