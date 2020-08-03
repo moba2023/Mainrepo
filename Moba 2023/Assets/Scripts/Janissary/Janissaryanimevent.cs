@@ -15,19 +15,31 @@ public class Janissaryanimevent : MonoBehaviour
         stats = transform.parent.GetComponent<Statsinfo>();
     }
 
+    private void Update()
+    {
+        GetComponent<CapsuleCollider>().center = transform.Find("mixamorig:Hips").localPosition;
+    }
+
     public void BeginAttack()
     {
-        ball = Instantiate(ballPrefab, hand.transform.position, Quaternion.identity);
-        ball.transform.SetParent(hand);
-        ball.GetComponent<Handball>().attacker = transform;
+        if (stats.target != null)
+        {
+            ball = Instantiate(ballPrefab, hand.transform.position, Quaternion.identity);
+            ball.transform.SetParent(hand);
+            ball.GetComponent<Handball>().attacker = transform;
+        }
     }
 
     public void MidAttack()
     {
-        ball.transform.SetParent(null);
-        ball.GetComponent<Handball>().target = stats.target;
-        ball.GetComponent<Handball>().charce = true;
+        if (ball != null)
+        {
+            ball.transform.SetParent(null);
+            ball.GetComponent<Handball>().target = stats.target;
+            ball.GetComponent<Handball>().charce = true;
+        }
     }
+
 
     public void EndAttack()
     {

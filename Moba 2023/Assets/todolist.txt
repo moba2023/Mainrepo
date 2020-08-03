@@ -1,12 +1,6 @@
 * Tum varliklarin saldiri rangeine targetin radiusu eklenecek
 	bloklanma ile ilgili optimizasyon
 
-* Minion spawn eden base scripti
-	Her x saniyede bir 1sn aralikla y adet minyon uretecek
 
 * Minion Prefabi
 	Elinde kilic olan bir karakter. Yurume, saldiri ve olum animasyonuyla birlikte
-	
-
-
-* chaseBreak Bugu

@@ -38,7 +38,11 @@ public class NearEnemies : MonoBehaviour
         float dist = stats.attackRange;
         for (int i = 0; i < enemies.Count(); i++)
         {
-            if (Vector3.Distance(enemies[i].transform.position, transform.position) < dist+1)
+            if (enemies[i] == null || !enemies[i].parent.GetComponent<Statsinfo>().isAlive)
+            {
+                enemies.RemoveAt(i);
+            }
+            else if (Vector3.Distance(enemies[i].transform.position, transform.position) < dist+1)
             {
                 nearest = enemies[i].transform;
                 dist = Vector3.Distance(enemies[i].transform.position, transform.position);

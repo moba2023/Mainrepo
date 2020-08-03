@@ -23,11 +23,19 @@ public class Handball : MonoBehaviour
             }
         }
         else
-        {   
-            if (!attacker.parent.GetComponent<Statsinfo>().target.parent.GetComponent<Statsinfo>().isAlive)
+        {
+            try
+            {
+                if((attacker != null && !attacker.parent.GetComponent<Statsinfo>().isAlive) || (attacker.parent.GetComponent<Statsinfo>().target.parent != null && !attacker.parent.GetComponent<Statsinfo>().target.parent.GetComponent<Statsinfo>().isAlive))
+                {
+
+                }
+            }
+            catch
             {
                 Destroy(gameObject);
             }
+            
         }
     }
 
