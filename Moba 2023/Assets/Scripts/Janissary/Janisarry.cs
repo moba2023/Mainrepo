@@ -19,15 +19,18 @@ public class Janisarry : MonoBehaviour
     public string state;
     public bool chaseBreak;
 
+    public int sPoint;
+    public int ePoint;
+
 
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         stats = transform.parent.GetComponent<Statsinfo>();
-        nearEnemies = transform.parent.Find("Chasecircle").GetComponent<NearEnemies>();
         agent = transform.parent.GetComponent<NavMeshAgent>();
-        agent.destination = nextPoint.position;
+        nearEnemies = transform.parent.Find("Chasecircle").GetComponent<NearEnemies>();
+        nextPoint = GameObject.Find("Point " + sPoint).transform;
         state = "move";
     }
 
@@ -59,7 +62,29 @@ public class Janisarry : MonoBehaviour
                 }
             }
         }
-
+        else if (state == "move")
+        {
+            agent.destination = nextPoint.transform.position;
+            if (Vector3.Distance(transform.position, nextPoint.position) < 5)
+            {
+                if (sPoint < ePoint)
+                {
+                    sPoint++;
+                }
+                else
+                {
+                    sPoint--;
+                }
+                if (sPoint == ePoint)
+                {
+                    nextPoint = targetBase;
+                }
+                else
+                {
+                    nextPoint = GameObject.Find("Point " + sPoint).transform;
+                }
+            }
+        }
     }
 
     private void Death()

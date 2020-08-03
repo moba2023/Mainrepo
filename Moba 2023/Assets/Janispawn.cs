@@ -10,6 +10,9 @@ public class Janispawn : MonoBehaviour
     public Transform point;
     public Transform beys;
 
+    public int sPoint;
+    public int ePoint;
+
     private int sprCount = 0;
     private int spmCount = 0;
 
@@ -29,10 +32,14 @@ public class Janispawn : MonoBehaviour
     void SpawnRanged()
     {
         GameObject jani = Instantiate(Janis, transform.position, Quaternion.identity);
-        jani.transform.GetChild(0).GetComponent<Janisarry>().nextPoint = point;
+        //jani.transform.GetChild(0).GetComponent<Janisarry>().nextPoint = point;
         jani.transform.GetChild(0).GetComponent<Janisarry>().targetBase = beys;
+        
+        jani.transform.GetChild(0).GetComponent<Janisarry>().sPoint = sPoint;
+        jani.transform.GetChild(0).GetComponent<Janisarry>().ePoint = ePoint;
+
         jani.transform.SetParent(GameObject.Find("Minions").transform);
-        if (++sprCount%3 ==0)
+        if (++sprCount % 2 ==0)
         {
             CancelInvoke("SpawnRanged");
             
@@ -42,10 +49,14 @@ public class Janispawn : MonoBehaviour
     void SpawnMelee()
     {
         GameObject jani = Instantiate(Janismelee, transform.position, Quaternion.identity);
-        jani.transform.GetChild(0).GetComponent<Janisarry>().nextPoint = point;
+        //jani.transform.GetChild(0).GetComponent<Janisarry>().nextPoint = point;
         jani.transform.GetChild(0).GetComponent<Janisarry>().targetBase = beys;
+
+        jani.transform.GetChild(0).GetComponent<Janisarry>().sPoint = sPoint;
+        jani.transform.GetChild(0).GetComponent<Janisarry>().ePoint = ePoint;
+
         jani.transform.SetParent(GameObject.Find("Minions").transform);
-        if (++spmCount % 3 == 0)
+        if (++spmCount % 2 == 0)
         {
             CancelInvoke("SpawnMelee");
             InvokeRepeating("SpawnRanged", 3, 1.5f);
