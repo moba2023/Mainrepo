@@ -1,3 +1,1 @@
 # Mainrepo
-
-Yeni klavye lazim
